@@ -24,7 +24,9 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0;
-  background-color:blue
+  background-color:blue;
+  outline: none; /* Tugma atrofidagi qatorni olib tashlash */
+  box-shadow: none; /* Tugma ustidagi soyani olib tashlash */
 }
 
 #action-button img {
@@ -35,6 +37,18 @@ body {
   border-radius: 50%; /* Rasmni dumaloq qilish */
   transition: transform 0.3s ease;
 }
+
+#action-button:focus,
+#action-button:active {
+  outline: none; /* Tugma atrofidagi qatorni olib tashlash */
+  box-shadow: none; /* Tugma ustidagi soyani olib tashlash */
+  /* background-color: transparent; */
+}
+
+#action-button {
+  -webkit-tap-highlight-color: transparent; /* Mobil qurilmalardagi bosish effekti */
+}
+
 
 /* #action-button:hover img {
   transform: scale(1.05); 
