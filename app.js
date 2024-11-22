@@ -8,7 +8,7 @@ const energyElement = document.getElementById("energy");
 let score = parseInt(localStorage.getItem("score")) || 0;
 let plus_score = parseInt(localStorage.getItem("plus_score")) || 1;
 let energy = parseInt(localStorage.getItem("energy")) || 500;
-let maxEnergy = parseInt(localStorage.getItem("max_energy")) || 500;
+let energyLimit = parseInt(localStorage.getItem("energy_limit")) || 500; // Energy limit
 let energyRechargeInterval =
   parseInt(localStorage.getItem("energy_recharge_interval")) || 5000;
 
@@ -17,8 +17,8 @@ energyElement.textContent = energy;
 
 // Energiya qayta tiklash funksiyasi
 function rechargeEnergy() {
-  if (energy < maxEnergy) {
-    energy++;
+  if (energy < energyLimit) {
+    energy = energy + plus_score;
     energyElement.textContent = energy;
     localStorage.setItem("energy", energy);
   }
@@ -35,7 +35,7 @@ button.addEventListener("click", (event) => {
   }
 
   // Energiya kamaytirish
-  energy--;
+  energy = Math.max(0, energy - plus_score); // Energiya 0 dan kam bo'lmasligi kerak
   energyElement.textContent = energy;
   localStorage.setItem("energy", energy);
 
@@ -55,11 +55,10 @@ button.addEventListener("click", (event) => {
   scoreElement.textContent = score;
 
   // Ball 500 ga yetganda yoki oshganda energiyani oshirish
-  if (score >= 500 && maxEnergy === 500) {
-    // Bir marta ishlashi uchun maxEnergy tekshiriladi
+  if (score >= 500 && energyLimit === 500) {
     plus_score = 3; // Ballni oshirish qiymati
-    maxEnergy = 15; // Maksimal energiyani oshirish
-    energy = Math.min(energy + 5, maxEnergy); // Energiya miqdorini oshirish
+    energyLimit = 15; // Maksimal energiyani oshirish
+    energy = Math.min(energy + 5, energyLimit); // Energiya miqdorini oshirish
     energyRechargeInterval = Math.max(energyRechargeInterval - 2000, 1000); // Qayta tiklanish tezligini oshirish
 
     // Intervalni yangilash
@@ -68,22 +67,75 @@ button.addEventListener("click", (event) => {
 
     // LocalStorage'ni yangilash
     localStorage.setItem("plus_score", plus_score);
-    localStorage.setItem("max_energy", maxEnergy);
+    localStorage.setItem("energy_limit", energyLimit);
     localStorage.setItem("energy", energy);
     localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
   }
-  else if(score >= 1000 && maxEnergy === 15){
-    // Birinchi marta ishlashi uchun maxEnergy tekshiriladi
-    plus_score = 1; // Ballni oshirish qiymati
-    maxEnergy = 20; // Maksimal energiyani oshirish
-    energy = Math.min(energy + 10, maxEnergy); // Energiya miqdorini oshirish
+  // Ball 1000 ga yetganda yoki oshganda energiyani oshirish
+  else if (score >= 1000 && energyLimit === 15) {
+    plus_score = 4; // Ballni oshirish qiymati
+    energyLimit = 20; // Maksimal energiyani oshirish
+    energy = Math.min(energy + 10, energyLimit); // Energiya miqdorini oshirish
     energyRechargeInterval = Math.max(energyRechargeInterval - 3000, 2000); // Qayta tiklanish tezligini oshirish
+
     // Intervalni yangilash
     clearInterval(rechargeInterval);
     rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
+
     // LocalStorage'ni yangilash
     localStorage.setItem("plus_score", plus_score);
-    localStorage.setItem("max_energy", maxEnergy);
+    localStorage.setItem("energy_limit", energyLimit);
+    localStorage.setItem("energy", energy);
+    localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
+  }
+  // Ball 2000 ga yetganda yoki oshganda energiyani oshirish
+  else if (score >= 2000 && energyLimit === 20) {
+    plus_score = 5; // Ballni oshirish qiymati
+    energyLimit = 30; // Maksimal energiyani oshirish
+    energy = Math.min(energy + 15, energyLimit); // Energiya miqdorini oshirish
+    energyRechargeInterval = Math.max(energyRechargeInterval - 4000, 3000); // Qayta tiklanish tezligini oshirish
+
+    // Intervalni yangilash
+    clearInterval(rechargeInterval);
+    rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
+
+    // LocalStorage'ni yangilash
+    localStorage.setItem("plus_score", plus_score);
+    localStorage.setItem("energy_limit", energyLimit);
+    localStorage.setItem("energy", energy);
+    localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
+  }
+  // Ball 5000 ga yetganda yoki oshganda energiyani oshirish
+  else if (score >= 5000 && energyLimit === 30) {
+    plus_score = 6; // Ballni oshirish qiymati
+    energyLimit = 40; // Maksimal energiyani oshirish
+    energy = Math.min(energy + 20, energyLimit); // Energiya miqdorini oshirish
+    energyRechargeInterval = Math.max(energyRechargeInterval - 5000, 4000); // Qayta tiklanish tezligini oshirish
+
+    // Intervalni yangilash
+    clearInterval(rechargeInterval);
+    rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
+
+    // LocalStorage'ni yangilash
+    localStorage.setItem("plus_score", plus_score);
+    localStorage.setItem("energy_limit", energyLimit);
+    localStorage.setItem("energy", energy);
+    localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
+  }
+  // Ball 10000 ga yetganda yoki oshganda energiyani oshirish
+  else if (score >= 10000 && energyLimit === 40) {
+    plus_score = 7; // Ballni oshirish qiymati
+    energyLimit = 50; // Maksimal energiyani oshirish
+    energy = Math.min(energy + 25, energyLimit); // Energiya miqdorini oshirish
+    energyRechargeInterval = Math.max(energyRechargeInterval - 6000, 5000); // Qayta tiklanish tezligini oshirish
+
+    // Intervalni yangilash
+    clearInterval(rechargeInterval);
+    rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
+
+    // LocalStorage'ni yangilash
+    localStorage.setItem("plus_score", plus_score);
+    localStorage.setItem("energy_limit", energyLimit);
     localStorage.setItem("energy", energy);
     localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
   }
