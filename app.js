@@ -38,6 +38,25 @@ function rechargeEnergy() {
   }
 }
 
+// Sahifani tark etgan vaqtda so'nggi tashrif vaqtini saqlash
+window.addEventListener("beforeunload", () => {
+  localStorage.setItem("lastVisitTime", Date.now());
+});
+
+// Sahifa ochilganda energiyani yangilash
+const lastVisitTime =
+  parseInt(localStorage.getItem("lastVisitTime")) || Date.now();
+const timeElapsed = Date.now() - lastVisitTime;
+
+// Qancha energiya tiklanganini hisoblash
+const energyRecovered =
+  Math.floor(timeElapsed / energyRechargeInterval) * plus_score;
+energy = Math.min(energy + energyRecovered, energyLimit); // Energiya limitdan oshmasin
+energyElement.textContent = energy;
+
+// LocalStorage'ni yangilash
+localStorage.setItem("energy", energy);
+
 // Energiya qayta tiklash uchun intervalni sozlash
 let rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
 
