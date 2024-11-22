@@ -7,8 +7,8 @@ const energyElement = document.getElementById("energy");
 // LocalStorage'dan ball, plus_score va energiyani olish yoki standart qiymatlarni belgilash
 let score = parseInt(localStorage.getItem("score")) || 0;
 let plus_score = parseInt(localStorage.getItem("plus_score")) || 1;
-let energy = parseInt(localStorage.getItem("energy")) || 10;
-let maxEnergy = parseInt(localStorage.getItem("max_energy")) || 10;
+let energy = parseInt(localStorage.getItem("energy")) || 500;
+let maxEnergy = parseInt(localStorage.getItem("max_energy")) || 500;
 let energyRechargeInterval =
   parseInt(localStorage.getItem("energy_recharge_interval")) || 5000;
 
@@ -55,7 +55,7 @@ button.addEventListener("click", (event) => {
   scoreElement.textContent = score;
 
   // Ball 500 ga yetganda yoki oshganda energiyani oshirish
-  if (score >= 500 && maxEnergy === 10) {
+  if (score >= 500 && maxEnergy === 500) {
     // Bir marta ishlashi uchun maxEnergy tekshiriladi
     plus_score = 3; // Ballni oshirish qiymati
     maxEnergy = 15; // Maksimal energiyani oshirish
