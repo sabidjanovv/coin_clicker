@@ -37,7 +37,7 @@ body {
 }
 
 #action-button:hover img {
-  transform: scale(1.1); /* Hover paytida rasmni kattalashtirish */
+  transform: scale(1.05); /* Hover paytida rasmni kattalashtirish */
 }
 
 
