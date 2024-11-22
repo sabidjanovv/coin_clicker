@@ -1,0 +1,10 @@
+Level 1 --> plus_score: 1, max_score: 5000, energy_limit: 1000
+Level 2 --> plus_score: 2, max_score: 10000, energy_limit: 1500
+Level 3 --> plus_score: 3, max_score: 30000, energy_limit: 2000
+Level 4 --> plus_score: 4, max_score: 60000, energy_limit: 2500
+Level 5 --> plus_score: 5, max_score: 100000, energy_limit: 3000
+Level 6 --> plus_score: 6, max_score: 150000, energy_limit: 3500
+Level 7 --> plus_score: 7, max_score: 200000, energy_limit: 4000
+Level 8 --> plus_score: 8, max_score: 250000, energy_limit: 4500
+Level 9 --> plus_score: 9, max_score: 300000, energy_limit: 5000
+Level 10 --> plus_score: 10, max_score: 400000, energy_limit: 6000

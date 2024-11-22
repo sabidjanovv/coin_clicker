@@ -15,6 +15,20 @@ let energyRechargeInterval =
 scoreElement.textContent = score;
 energyElement.textContent = energy;
 
+// Level ma'lumotlari
+const levels = [
+  { plus_score: 1, max_score: 5000, energy_limit: 1000 },
+  { plus_score: 2, max_score: 10000, energy_limit: 1500 },
+  { plus_score: 3, max_score: 30000, energy_limit: 2000 },
+  { plus_score: 4, max_score: 60000, energy_limit: 2500 },
+  { plus_score: 5, max_score: 100000, energy_limit: 3000 },
+  { plus_score: 6, max_score: 150000, energy_limit: 3500 },
+  { plus_score: 7, max_score: 200000, energy_limit: 4000 },
+  { plus_score: 8, max_score: 250000, energy_limit: 4500 },
+  { plus_score: 9, max_score: 300000, energy_limit: 5000 },
+  { plus_score: 10, max_score: 400000, energy_limit: 6000 },
+];
+
 // Energiya qayta tiklash funksiyasi
 function rechargeEnergy() {
   if (energy < energyLimit) {
@@ -54,91 +68,28 @@ button.addEventListener("click", (event) => {
   score += plus_score;
   scoreElement.textContent = score;
 
-  // Ball 500 ga yetganda yoki oshganda energiyani oshirish
-  if (score >= 500 && energyLimit === 500) {
-    plus_score = 3; // Ballni oshirish qiymati
-    energyLimit = 15; // Maksimal energiyani oshirish
-    energy = Math.min(energy + 5, energyLimit); // Energiya miqdorini oshirish
-    energyRechargeInterval = Math.max(energyRechargeInterval - 2000, 1000); // Qayta tiklanish tezligini oshirish
+  // Levelga ko'ra energiyani va intervalni yangilash
+  levels.forEach((level, index) => {
+    if (score >= level.max_score && energyLimit === level.energy_limit) {
+      plus_score = level.plus_score; // Ballni oshirish qiymati
+      energyLimit = level.energy_limit; // Maksimal energiyani oshirish
+      energy = Math.min(energy + level.energy_limit, energyLimit); // Energiya miqdorini oshirish
+      energyRechargeInterval = Math.max(
+        energyRechargeInterval - 1000 * (index + 1),
+        1000
+      ); // Qayta tiklanish tezligini oshirish
 
-    // Intervalni yangilash
-    clearInterval(rechargeInterval);
-    rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
+      // Intervalni yangilash
+      clearInterval(rechargeInterval);
+      rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
 
-    // LocalStorage'ni yangilash
-    localStorage.setItem("plus_score", plus_score);
-    localStorage.setItem("energy_limit", energyLimit);
-    localStorage.setItem("energy", energy);
-    localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
-  }
-  // Ball 1000 ga yetganda yoki oshganda energiyani oshirish
-  else if (score >= 1000 && energyLimit === 15) {
-    plus_score = 4; // Ballni oshirish qiymati
-    energyLimit = 20; // Maksimal energiyani oshirish
-    energy = Math.min(energy + 10, energyLimit); // Energiya miqdorini oshirish
-    energyRechargeInterval = Math.max(energyRechargeInterval - 3000, 2000); // Qayta tiklanish tezligini oshirish
-
-    // Intervalni yangilash
-    clearInterval(rechargeInterval);
-    rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
-
-    // LocalStorage'ni yangilash
-    localStorage.setItem("plus_score", plus_score);
-    localStorage.setItem("energy_limit", energyLimit);
-    localStorage.setItem("energy", energy);
-    localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
-  }
-  // Ball 2000 ga yetganda yoki oshganda energiyani oshirish
-  else if (score >= 2000 && energyLimit === 20) {
-    plus_score = 5; // Ballni oshirish qiymati
-    energyLimit = 30; // Maksimal energiyani oshirish
-    energy = Math.min(energy + 15, energyLimit); // Energiya miqdorini oshirish
-    energyRechargeInterval = Math.max(energyRechargeInterval - 4000, 3000); // Qayta tiklanish tezligini oshirish
-
-    // Intervalni yangilash
-    clearInterval(rechargeInterval);
-    rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
-
-    // LocalStorage'ni yangilash
-    localStorage.setItem("plus_score", plus_score);
-    localStorage.setItem("energy_limit", energyLimit);
-    localStorage.setItem("energy", energy);
-    localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
-  }
-  // Ball 5000 ga yetganda yoki oshganda energiyani oshirish
-  else if (score >= 5000 && energyLimit === 30) {
-    plus_score = 6; // Ballni oshirish qiymati
-    energyLimit = 40; // Maksimal energiyani oshirish
-    energy = Math.min(energy + 20, energyLimit); // Energiya miqdorini oshirish
-    energyRechargeInterval = Math.max(energyRechargeInterval - 5000, 4000); // Qayta tiklanish tezligini oshirish
-
-    // Intervalni yangilash
-    clearInterval(rechargeInterval);
-    rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
-
-    // LocalStorage'ni yangilash
-    localStorage.setItem("plus_score", plus_score);
-    localStorage.setItem("energy_limit", energyLimit);
-    localStorage.setItem("energy", energy);
-    localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
-  }
-  // Ball 10000 ga yetganda yoki oshganda energiyani oshirish
-  else if (score >= 10000 && energyLimit === 40) {
-    plus_score = 7; // Ballni oshirish qiymati
-    energyLimit = 50; // Maksimal energiyani oshirish
-    energy = Math.min(energy + 25, energyLimit); // Energiya miqdorini oshirish
-    energyRechargeInterval = Math.max(energyRechargeInterval - 6000, 5000); // Qayta tiklanish tezligini oshirish
-
-    // Intervalni yangilash
-    clearInterval(rechargeInterval);
-    rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
-
-    // LocalStorage'ni yangilash
-    localStorage.setItem("plus_score", plus_score);
-    localStorage.setItem("energy_limit", energyLimit);
-    localStorage.setItem("energy", energy);
-    localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
-  }
+      // LocalStorage'ni yangilash
+      localStorage.setItem("plus_score", plus_score);
+      localStorage.setItem("energy_limit", energyLimit);
+      localStorage.setItem("energy", energy);
+      localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
+    }
+  });
 
   // LocalStorage'ni yangilash
   localStorage.setItem("score", score);
