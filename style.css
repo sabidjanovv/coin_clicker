@@ -60,13 +60,13 @@ body {
   background-color: #ddd;
   border-radius: 5px;
 }
+
 #progress-bar-fill {
   height: 100%;
   background-color: #4caf50;
   width: 0%; /* Dastlab 0% to'ldirilgan */
   border-radius: 5px;
 }
-
 
 #action-button {
   width: 350px;
@@ -140,44 +140,77 @@ body {
   margin-top: 20px;
 }
 
+/* Tablet va kichik ekranlar uchun o'lchamlarni moslashtirish */
 @media (max-width: 768px) {
   .wrapper {
     height: 100%;
     width: 100%;
-    padding: 10px;
+    padding: 0;
   }
 
   #score-board {
-    font-size: 50px; /* Adjusted for smaller screens */
+    font-size: 60px; /* Mobile optimization */
   }
 
   #action-button {
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
   }
 
   #action-button img {
     width: 60%;
   }
+
+  #level-info {
+    font-size: 18px;
+  }
 }
 
+/* Mobil telefonlar uchun o'lchamlarni optimallashtirish */
 @media (max-width: 480px) {
   .wrapper {
     height: 100%;
     width: 100%;
-    padding: 5px;
+    padding: 0;
   }
 
   #score-board {
-    font-size: 40px; /* Adjusted for smaller screens */
+    font-size: 40px; /* Mobile optimization */
   }
 
   #action-button {
-    width: 350px;
-    height: 350px;
+    width: 200px;
+    height: 200px;
   }
 
   #action-button img {
     width: 50%;
+  }
+
+  #level-info {
+    font-size: 16px;
+  }
+}
+
+/* Progress barni kichik ekranlar uchun moslashtirish */
+#progress-bar {
+  height: 8px; /* Kichik ekranlarda pastki progress bar o'lchami */
+}
+
+@media (max-width: 768px) {
+  #progress-bar {
+    height: 6px; /* Kichik ekranlar uchun progress barni yanada kichraytiramiz */
+  }
+}
+
+/* Animatsiyalarni kichik ekranlarda optimallashtirish */
+@keyframes move-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px); /* Kichik ekranlar uchun animatsiyani kamaytiramiz */
+    opacity: 0;
   }
 }
