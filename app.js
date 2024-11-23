@@ -79,6 +79,12 @@ function updateProgressBar() {
   progressBarFill.style.width = `${progress}%`;
 }
 
+// Sahifa yuklanganda Progress Barni tiklash
+window.addEventListener("load", () => {
+  updateProgressBar(); // Sahifa yuklanganda Progress Barni yangilash
+  updateLevel(); // Levelni yangilash
+});
+
 // Tugma bosilganda ishlovchi kod
 button.addEventListener("click", (event) => {
   if (energy <= 0) {
