@@ -69,6 +69,16 @@ function updateLevel() {
   nextLevelElement.textContent = level.max_score;
 }
 
+// Progress bar yaratish va yangilash
+const progressBar = document.getElementById("progress-bar");
+const progressBarFill = document.getElementById("progress-bar-fill");
+
+function updateProgressBar() {
+  const level = levels.find((level) => score <= level.max_score);
+  const progress = (score / level.max_score) * 100;
+  progressBarFill.style.width = `${progress}%`;
+}
+
 // Tugma bosilganda ishlovchi kod
 button.addEventListener("click", (event) => {
   if (energy <= 0) {
@@ -121,6 +131,8 @@ button.addEventListener("click", (event) => {
       localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
     }
     updateLevel();
+    // Progress barni yangilash
+    updateProgressBar();
   });
 
   // LocalStorage'ni yangilash

@@ -54,6 +54,18 @@ body {
   justify-content: center;
 }
 
+#progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+}
+#progress-bar-fill {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%; /* Dastlab 0% to'ldirilgan */
+}
+
+
 #action-button {
   width: 350px;
   height: 350px;
