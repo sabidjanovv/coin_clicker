@@ -45,10 +45,10 @@ body {
 }
 
 #score-board {
-  margin-bottom: 40px; /* Increase the top margin for better spacing */
-  font-size: 80px; /* Increase the font size for a larger score display */
+  margin-bottom: 40px;
+  font-size: 80px;
   font-weight: bold;
-  color: var(--secondary-color); /* Asosiy matn rangi */
+  color: var(--secondary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,37 +73,40 @@ body {
   height: 350px;
   cursor: pointer;
   border: 5px solid var(--dark-color);
-  background-image: linear-gradient(45deg, var(--accent-color), var(--primary-color)); /* Linear gradient uchun fon rangi */
+  background-image: linear-gradient(45deg, var(--accent-color), var(--primary-color));
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
   outline: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Tugmaga soyali effekt */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden; /* Rasm tugma ichida qolishi uchun */
 }
 
 #action-button img {
   width: 100%;
-  height: 36vh;
-  position: relative;
-  /* bottom: 0px; */
-  border-radius: 50%;
+  height: 100%;
+  object-fit: cover; /* Rasmni butun tugmaga to'g'ri joylashishiga yordam beradi */
+  position: absolute; /* Tugma maydoni ichida joylashish */
+  top: 0;
+  left: 0;
   transition: transform 0.3s ease;
 }
 
 #action-button:hover {
-  background-color: var(--secondary-color); /* Hover effekti uchun tugma rangi */
+  background-color: var(--secondary-color);
 }
 
 #action-button:focus,
 #action-button:active {
   outline: none;
-  box-shadow: 0 4px 15px rgba(99, 156, 217, 0.8); /* Bosganda tugma effekt */
+  box-shadow: 0 4px 15px rgba(99, 156, 217, 0.8);
 }
 
 #action-button {
-  -webkit-tap-highlight-color: transparent; /* Mobil qurilmalardagi bosish effekti */
+  -webkit-tap-highlight-color: transparent;
 }
 
 #animation-container {
@@ -149,21 +152,20 @@ body {
   }
 
   #score-board {
-    font-size: 60px; /* Mobile optimization */
+    font-size: 60px;
   }
 
   #action-button {
-    width: 400px;
-    height: 400px;
-  }
-
-  #action-button img {
-    width: 100%;
-    height: 45vh;
+    width: 300px;
+    height: 300px;
   }
 
   #level-info {
     font-size: 18px;
+  }
+
+  #progress-bar {
+    height: 8px;
   }
 }
 
@@ -176,32 +178,20 @@ body {
   }
 
   #score-board {
-    font-size: 40px; /* Mobile optimization */
+    font-size: 40px;
   }
 
   #action-button {
-    width: 350px;
-    height: 350px;
-  }
-
-  #action-button img {
-    width: 100%;
-    height: 40vh;
+    width: 250px;
+    height: 250px;
   }
 
   #level-info {
     font-size: 16px;
   }
-}
 
-/* Progress barni kichik ekranlar uchun moslashtirish */
-#progress-bar {
-  height: 8px; /* Kichik ekranlarda pastki progress bar o'lchami */
-}
-
-@media (max-width: 768px) {
   #progress-bar {
-    height: 6px; /* Kichik ekranlar uchun progress barni yanada kichraytiramiz */
+    height: 6px;
   }
 }
 
@@ -212,7 +202,7 @@ body {
     opacity: 1;
   }
   100% {
-    transform: translateY(-50px); /* Kichik ekranlar uchun animatsiyani kamaytiramiz */
+    transform: translateY(-50px);
     opacity: 0;
   }
 }
