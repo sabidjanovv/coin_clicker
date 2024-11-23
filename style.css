@@ -6,11 +6,45 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: #342056; /* Loyihaning asosiy fon rangi */
+  color: #f0f0f0; /* Matn rangi */
+}
+
+.wrapper {
+  background: #220e24; /* Kartaning fon rangi */
+  border-radius: 20px;
+  margin: 20px auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  max-width: 1600px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #639cd9; /* Matnning asosiy rangi */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
   position: relative;
+  text-align: center;
+}
+
+.coin_image {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+#score-board {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #639cd9; /* Asosiy matn rangi */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #action-button {
@@ -18,42 +52,38 @@ body {
   height: 250px;
   cursor: pointer;
   border: none;
-  background-color: transparent; /* Tugma fonini o'chirish */
+  background-color: #5454c5; /* Tugma uchun fon rangi */
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
-  background-color:blue;
-  outline: none; /* Tugma atrofidagi qatorni olib tashlash */
-  box-shadow: none; /* Tugma ustidagi soyani olib tashlash */
+  outline: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Tugmaga soyali effekt */
 }
 
 #action-button img {
-  width: 70%; /* Rasm tugmaga mos hajmda bo'lishi uchun */
+  width: 70%;
   height: auto;
   position: relative;
   bottom: 40px;
-  border-radius: 50%; /* Rasmni dumaloq qilish */
+  border-radius: 50%;
   transition: transform 0.3s ease;
+}
+
+#action-button:hover {
+  background-color: #639cd9; /* Hover effekti uchun tugma rangi */
 }
 
 #action-button:focus,
 #action-button:active {
-  outline: none; /* Tugma atrofidagi qatorni olib tashlash */
-  box-shadow: none; /* Tugma ustidagi soyani olib tashlash */
-  /* background-color: transparent; */
+  outline: none;
+  box-shadow: 0 4px 15px rgba(99, 156, 217, 0.8); /* Bosganda tugma effekt */
 }
 
 #action-button {
   -webkit-tap-highlight-color: transparent; /* Mobil qurilmalardagi bosish effekti */
 }
-
-
-/* #action-button:hover img {
-  transform: scale(1.05); 
-} */
-
 
 #animation-container {
   position: absolute;
@@ -81,11 +111,4 @@ body {
     transform: translateY(-100px);
     opacity: 0;
   }
-}
-
-#score-board {
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
 }

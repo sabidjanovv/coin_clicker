@@ -17,7 +17,7 @@ energyElement.textContent = energy;
 
 // Level ma'lumotlari
 const levels = [
-  { plus_score: 1, max_score: 5000, energy_limit: 1000 },
+  { plus_score: 1, max_score: 1000, energy_limit: 1000 },
   { plus_score: 2, max_score: 10000, energy_limit: 1500 },
   { plus_score: 3, max_score: 30000, energy_limit: 2000 },
   { plus_score: 4, max_score: 60000, energy_limit: 2500 },
@@ -89,14 +89,15 @@ button.addEventListener("click", (event) => {
 
   // Levelga ko'ra energiyani va intervalni yangilash
   levels.forEach((level, index) => {
-    if (score >= level.max_score && energyLimit === level.energy_limit) {
-      plus_score = level.plus_score; // Ballni oshirish qiymati
-      energyLimit = level.energy_limit; // Maksimal energiyani oshirish
+      if (score >= level.max_score && energyLimit === level.energy_limit) {
+      plus_score = level.plus_score + 1; // Ballni oshirish qiymati
+      energyLimit = level.energy_limit + 500; // Maksimal energiyani oshirish
       energy = Math.min(energy + level.energy_limit, energyLimit); // Energiya miqdorini oshirish
       energyRechargeInterval = Math.max(
-        energyRechargeInterval - 1000 * (index + 1),
-        1000
-      ); // Qayta tiklanish tezligini oshirish
+          energyRechargeInterval - 1000 * (index + 1),
+          1000
+          ); // Qayta tiklanish tezligini oshirish
+          console.log(energyRechargeInterval);
 
       // Intervalni yangilash
       clearInterval(rechargeInterval);
