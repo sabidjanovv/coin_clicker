@@ -48,8 +48,8 @@ body {
 }
 
 #action-button {
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
   cursor: pointer;
   border: none;
   background-color: #5454c5; /* Tugma uchun fon rangi */
@@ -125,8 +125,8 @@ body {
   }
 
   #action-button {
-    width: 200px;
-    height: 200px; /* Tugmani kichraytiramiz */
+    width: 400px;
+    height: 400px; /* Tugmani kichraytiramiz */
   }
 
   #action-button img {
@@ -147,8 +147,8 @@ body {
   }
 
   #action-button {
-    width: 150px;
-    height: 150px; /* Tugmani yanada kichraytiramiz */
+    width: 350px;
+    height: 350px; /* Tugmani yanada kichraytiramiz */
   }
 
   #action-button img {
