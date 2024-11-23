@@ -60,13 +60,13 @@ body {
   background-color: #ddd;
   border-radius: 5px;
 }
-
 #progress-bar-fill {
   height: 100%;
   background-color: #4caf50;
   width: 0%; /* Dastlab 0% to'ldirilgan */
   border-radius: 5px;
 }
+
 
 #action-button {
   width: 350px;
