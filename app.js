@@ -89,7 +89,8 @@ button.addEventListener("click", (event) => {
 
   // Levelga ko'ra energiyani va intervalni yangilash
   levels.forEach((level, index) => {
-      if (score >= level.max_score && energyLimit === level.energy_limit) {
+    console.log("Score:", score);
+      if (score >= level.max_score && energyLimit <= level.energy_limit) {
       plus_score = level.plus_score + 1; // Ballni oshirish qiymati
       energyLimit = level.energy_limit + 500; // Maksimal energiyani oshirish
       energy = Math.min(energy + level.energy_limit, energyLimit); // Energiya miqdorini oshirish
