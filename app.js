@@ -93,6 +93,9 @@ button.addEventListener("click", (event) => {
       if (score >= level.max_score && energyLimit <= level.energy_limit) {
       plus_score = level.plus_score + 1; // Ballni oshirish qiymati
       energyLimit = level.energy_limit + 500; // Maksimal energiyani oshirish
+      if(energyLimit%2){
+        energyLimit = energyLimit - 1;
+      }
       energy = Math.min(energy + level.energy_limit, energyLimit); // Energiya miqdorini oshirish
       energyRechargeInterval = Math.max(
           energyRechargeInterval - 1000 * (index + 1),
