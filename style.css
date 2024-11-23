@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #33425b; /* Asosiy rang */
+  --secondary-color: #5baaec; /* Ikkinchi rang */
+  --accent-color: #526ed0; /* Accent rang */
+  --dark-color: #484cb0; /* Qorong'u rang */
+  --light-color: #f0f0f0; /* Yorug' rang */
+}
+
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -6,25 +14,24 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #342056; /* Loyihaning asosiy fon rangi */
-  color: #f0f0f0; /* Matn rangi */
+  background-color: var(--primary-color); /* Asosiy fon rangi */
+  color: var(--light-color); /* Matn rangi */
 }
 
 .wrapper {
-  background: #220e24; /* Kartaning fon rangi */
-  border-radius: 20px; /* Agar kerak bo'lmasa, olib tashlash mumkin */
+  background: var(--primary-color); /* Kartaning fon rangi */
+  border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  width: 100%; /* Ekranni to'liq kenglikda egallash */
-  height: 100%; /* Ekranni to'liq balandlikda egallash */
+  width: 100%;
+  height: 100%;
   padding: 20px;
-  color: #639cd9; /* Matnning asosiy rangi */
+  color: var(--secondary-color); /* Matnning asosiy rangi */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0; /* Markazlashtirilgan marginni olib tashladik */
+  margin: 0;
 }
-
 
 .container {
   position: relative;
@@ -38,10 +45,10 @@ body {
 }
 
 #score-board {
-  margin-top: 20px;
-  font-size: 24px;
+  margin-bottom: 40px; /* Increase the top margin for better spacing */
+  font-size: 80px; /* Increase the font size for a larger score display */
   font-weight: bold;
-  color: #639cd9; /* Asosiy matn rangi */
+  color: var(--secondary-color); /* Asosiy matn rangi */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,8 +58,8 @@ body {
   width: 350px;
   height: 350px;
   cursor: pointer;
-  border: none;
-  background-color: #5454c5; /* Tugma uchun fon rangi */
+  border: 5px solid var(--dark-color);
+  background-image: linear-gradient(45deg, var(--accent-color), var(--primary-color)); /* Linear gradient uchun fon rangi */
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -72,7 +79,7 @@ body {
 }
 
 #action-button:hover {
-  background-color: #639cd9; /* Hover effekti uchun tugma rangi */
+  background-color: var(--secondary-color); /* Hover effekti uchun tugma rangi */
 }
 
 #action-button:focus,
@@ -98,7 +105,7 @@ body {
   position: absolute;
   font-size: 40px;
   font-weight: bold;
-  color: #4caf50;
+  color: var(--light-color);
   animation: move-up 1s ease-out forwards;
 }
 
@@ -115,43 +122,43 @@ body {
 
 @media (max-width: 768px) {
   .wrapper {
-    height: 100%; /* Ekranning to'liq balandligini egallash */
-    width: 100%;  /* Ekranning to'liq kengligini egallash */
-    padding: 10px; /* Ekranda joyni tejash uchun kichikroq padding */
+    height: 100%;
+    width: 100%;
+    padding: 10px;
   }
 
   #score-board {
-    font-size: 20px; /* Matn hajmini kichraytiramiz */
+    font-size: 50px; /* Adjusted for smaller screens */
   }
 
   #action-button {
     width: 400px;
-    height: 400px; /* Tugmani kichraytiramiz */
+    height: 400px;
   }
 
   #action-button img {
-    width: 60%; /* Tugma ichidagi rasmni kichraytiramiz */
+    width: 60%;
   }
 }
 
-/* Juda kichik ekranlar uchun (max-width: 480px) */
 @media (max-width: 480px) {
   .wrapper {
-    height: 100%; /* Ekranning to'liq balandligini egallash */
-    width: 100%;  /* Ekranning to'liq kengligini egallash */
-    padding: 5px;  /* Kichik ekranlarda yana ham kichikroq padding */
+    height: 100%;
+    width: 100%;
+    padding: 5px;
   }
 
   #score-board {
-    font-size: 18px; /* Matn hajmini yanada kichraytiramiz */
+    font-size: 40px; /* Adjusted for smaller screens */
   }
+
 
   #action-button {
     width: 350px;
-    height: 350px; /* Tugmani yanada kichraytiramiz */
+    height: 350px;
   }
 
   #action-button img {
-    width: 50%; /* Rasmni moslashtiramiz */
+    width: 50%;
   }
 }
