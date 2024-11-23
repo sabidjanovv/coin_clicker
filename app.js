@@ -3,6 +3,8 @@ const button = document.getElementById("action-button");
 const animationContainer = document.getElementById("animation-container");
 const scoreElement = document.getElementById("score");
 const energyElement = document.getElementById("energy");
+const levelElement = document.getElementById("level");
+const nextLevelElement = document.getElementById("next-level");
 
 // LocalStorage'dan ball, plus_score va energiyani olish yoki standart qiymatlarni belgilash
 let score = parseInt(localStorage.getItem("score")) || 0;
@@ -60,6 +62,13 @@ localStorage.setItem("energy", energy);
 // Energiya qayta tiklash uchun intervalni sozlash
 let rechargeInterval = setInterval(rechargeEnergy, energyRechargeInterval);
 
+// Levelga qarab ballarni yangilash
+function updateLevel() {
+  const level = levels.find((level) => score <= level.max_score);
+  levelElement.textContent = level.plus_score;
+  nextLevelElement.textContent = level.max_score;
+}
+
 // Tugma bosilganda ishlovchi kod
 button.addEventListener("click", (event) => {
   if (energy <= 0) {
@@ -111,6 +120,7 @@ button.addEventListener("click", (event) => {
       localStorage.setItem("energy_limit", energyLimit);
       localStorage.setItem("energy_recharge_interval", energyRechargeInterval);
     }
+    updateLevel();
   });
 
   // LocalStorage'ni yangilash

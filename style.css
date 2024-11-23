@@ -120,6 +120,12 @@ body {
   }
 }
 
+#level-info {
+  font-size: 20px;
+  color: var(--secondary-color);
+  margin-top: 20px;
+}
+
 @media (max-width: 768px) {
   .wrapper {
     height: 100%;
@@ -151,7 +157,6 @@ body {
   #score-board {
     font-size: 40px; /* Adjusted for smaller screens */
   }
-
 
   #action-button {
     width: 350px;
