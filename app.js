@@ -48,7 +48,6 @@ window.addEventListener("beforeunload", () => {
 // Sahifa ochilganda energiyani yangilash
 const lastVisitTime =
   parseInt(localStorage.getItem("lastVisitTime")) || Date.now();
-  updateProgressBar();
 const timeElapsed = Date.now() - lastVisitTime;
 
 // Qancha energiya tiklanganini hisoblash
