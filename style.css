@@ -112,3 +112,44 @@ body {
     opacity: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    max-width: 90%; /* Kartaning kengligi ekran kengligiga moslashadi */
+    height: auto; /* Balandlikni avtomatik qilib qo'yamiz */
+    padding: 15px; /* Ichki bo'shliqni kamaytiramiz */
+  }
+
+  #score-board {
+    font-size: 20px; /* Matn hajmini kichraytiramiz */
+  }
+
+  #action-button {
+    width: 200px;
+    height: 200px; /* Tugmani kichraytiramiz */
+  }
+
+  #action-button img {
+    width: 60%; /* Tugma ichidagi rasmni kichraytiramiz */
+  }
+}
+
+/* Juda kichik ekranlar uchun (max-width: 480px) */
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 10px; /* Ichki bo'shliqni yanada kamaytiramiz */
+  }
+
+  #score-board {
+    font-size: 18px; /* Matn hajmini yanada kichraytiramiz */
+  }
+
+  #action-button {
+    width: 150px;
+    height: 150px; /* Tugmani yanada kichraytiramiz */
+  }
+
+  #action-button img {
+    width: 50%; /* Rasmni moslashtiramiz */
+  }
+}
